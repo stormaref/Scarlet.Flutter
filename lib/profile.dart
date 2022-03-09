@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:app/colors/my_colors.dart';
 import 'package:app/components/custom_button.dart';
+import 'package:app/components/custom_progress.dart';
 import 'package:app/components/custom_text_field.dart';
 import 'package:app/components/detail_card.dart';
 import 'package:app/components/white_text.dart';
@@ -23,22 +24,19 @@ class ProfileView extends GetView<ProfileController> {
       body: Center(
         child: Stack(
           children: [
-            Align(
-              child: Container(
-                width: double.infinity,
-                margin: EdgeInsets.only(left: 16, right: 16, top: 36),
-                height: 160,
-                color: MyColors.grayT1,
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: IconButton(
-                      splashRadius: 1,
-                      icon: Icon(Icons.more_vert_outlined,
-                          color: MyColors.grayT7),
-                      onPressed: () => showOptionsModal(context)),
-                ),
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.only(left: 16, right: 16, top: 36),
+              height: 160,
+              color: MyColors.grayT1,
+              child: Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                    splashRadius: 1,
+                    icon:
+                        Icon(Icons.more_vert_outlined, color: MyColors.grayT7),
+                    onPressed: () => showOptionsModal(context)),
               ),
-              alignment: Alignment.topCenter,
             ),
             Align(
               child: Container(
@@ -93,15 +91,7 @@ class ProfileView extends GetView<ProfileController> {
                       alignment: Alignment.topCenter,
                       child: Padding(
                         padding: EdgeInsets.only(top: 132, right: 36, left: 36),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: LinearProgressIndicator(
-                            backgroundColor: MyColors.grayT3,
-                            color: MyColors.lipstick,
-                            minHeight: 10,
-                            value: 0.4,
-                          ),
-                        ),
+                        child: CustomProgress(0.4),
                       ),
                     ),
                     Align(
