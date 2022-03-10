@@ -14,6 +14,7 @@ class WhiteText extends GetView {
     return Text(
       text,
       style: GoogleFonts.nunito(color: Colors.white, fontSize: size),
+      textAlign: TextAlign.center,
     );
   }
 }

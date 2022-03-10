@@ -5,7 +5,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 
 class CustomTextField extends GetView {
   final String labelText;
-  final IconData icon;
+  final Widget icon;
   final TextInputType inputType;
 
   CustomTextField(this.labelText, this.icon, this.inputType);
@@ -13,9 +13,9 @@ class CustomTextField extends GetView {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      keyboardType: inputType,
-      cursorColor: MyColors.grayT3,
-      decoration: InputDecoration(
+        keyboardType: inputType,
+        cursorColor: MyColors.grayT3,
+        decoration: InputDecoration(
           hintStyle: TextStyle(color: MyColors.grayT3),
           labelText: labelText,
           labelStyle: TextStyle(color: MyColors.grayT3),
@@ -24,10 +24,8 @@ class CustomTextField extends GetView {
           border: UnderlineInputBorder(
               borderRadius: BorderRadius.circular(4),
               borderSide: BorderSide.none),
-          prefixIcon: Icon(
-            icon,
-            color: MyColors.grayT3,
-          )),
-    );
+          prefixIcon: icon,
+          // prefixIconConstraints: BoxConstraints.tight(),
+        ));
   }
 }

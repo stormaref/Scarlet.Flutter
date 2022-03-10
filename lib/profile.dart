@@ -5,6 +5,8 @@ import 'package:app/components/custom_button.dart';
 import 'package:app/components/custom_progress.dart';
 import 'package:app/components/custom_text_field.dart';
 import 'package:app/components/detail_card.dart';
+import 'package:app/components/medals.dart';
+import 'package:app/components/white_line.dart';
 import 'package:app/components/white_text.dart';
 import 'package:app/controllers/profile_controller.dart';
 import 'package:app/icons/my_icons.dart';
@@ -50,7 +52,7 @@ class ProfileView extends GetView<ProfileController> {
                       decoration: BoxDecoration(boxShadow: [
                         BoxShadow(
                             color: Color(0xFF232122),
-                            spreadRadius: 20,
+                            spreadRadius: 8,
                             blurRadius: 20),
                       ], color: Color(0xFF0B090A)),
                     ),
@@ -118,7 +120,7 @@ class ProfileView extends GetView<ProfileController> {
                                   alignment: Alignment.centerLeft,
                                   iconSize: 0,
                                   visualDensity: VisualDensity.compact,
-                                  onPressed: () => showMedalModal(),
+                                  onPressed: () => showMedalModal(context),
                                   icon: MyIcons.info),
                             ),
                             // Flexible(
@@ -156,7 +158,7 @@ class ProfileView extends GetView<ProfileController> {
                 top: 140,
                 right: 40,
                 child: IconButton(
-                    onPressed: () => editBanner(), icon: MyIcons.edit)),
+                    onPressed: () => editBanner(context), icon: MyIcons.edit)),
             Align(
               alignment: Alignment.topCenter,
               child: Padding(
@@ -288,7 +290,16 @@ class ProfileView extends GetView<ProfileController> {
                   left: 16,
                   top: 36,
                   child: CustomTextField(
-                      "Name", Icons.edit_note_outlined, TextInputType.name),
+                      "Name",
+                      Padding(
+                        padding: EdgeInsets.all(10),
+                        child: SvgPicture.asset(
+                          "assets/icons/edit.svg",
+                          color: MyColors.grayT3,
+                        ),
+                      ),
+                      // Icon(Icons.edit),
+                      TextInputType.name),
                 ),
                 Positioned(
                   left: 16,
@@ -332,7 +343,13 @@ class ProfileView extends GetView<ProfileController> {
                   right: 16,
                   left: 16,
                   top: 36,
-                  child: CustomTextField("Year", Icons.calendar_month_rounded,
+                  child: CustomTextField(
+                      "Year",
+                      Padding(
+                        padding: EdgeInsets.all(8),
+                        child: SvgPicture.asset("assets/icons/calendar.svg",
+                            color: MyColors.grayT3),
+                      ),
                       TextInputType.number),
                 ),
                 Positioned(
@@ -531,23 +548,14 @@ class ProfileView extends GetView<ProfileController> {
     return showModalBottomSheet(
         context: context,
         builder: (BuildContext context) {
-          return Container(
+          var container = Container(
             height: 182,
             width: double.infinity,
             color: MyColors.background,
             child: Stack(
               alignment: Alignment.topCenter,
               children: [
-                Positioned(
-                  top: 12,
-                  child: Container(
-                    height: 4,
-                    width: 56,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(2),
-                        color: Colors.white),
-                  ),
-                ),
+                Positioned(top: 12, child: WhiteLine()),
                 Positioned(
                   top: 40,
                   left: 16,
@@ -587,6 +595,7 @@ class ProfileView extends GetView<ProfileController> {
               ],
             ),
           );
+          return container;
         });
   }
 
@@ -596,7 +605,61 @@ class ProfileView extends GetView<ProfileController> {
 
   aboutUs() {}
 
-  editBanner() {}
+  editBanner(BuildContext context) {
+    return showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return Container(
+            color: MyColors.background,
+            height: 148,
+            child: Padding(
+              padding: EdgeInsets.only(left: 16),
+              child: Column(
+                children: [
+                  Padding(
+                      padding: EdgeInsets.only(top: 12), child: WhiteLine()),
+                  Padding(
+                    padding: EdgeInsets.only(top: 24),
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Row(
+                        children: [
+                          MyIcons.gallery,
+                          SizedBox(
+                            width: 16,
+                          ),
+                          WhiteText("Change Cover from TvShows", 16)
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 36),
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Row(
+                        children: [
+                          MyIcons.gallery,
+                          SizedBox(
+                            width: 16,
+                          ),
+                          WhiteText("Change Cover from TvShows", 16)
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+  }
 
-  showMedalModal() {}
+  showMedalModal(BuildContext context) {
+    return showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return Medals();
+        });
+  }
 }

@@ -19,7 +19,7 @@ class DetailCard extends GetView {
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(boxShadow: [
-        BoxShadow(color: Color(0xFF232122), spreadRadius: 2, blurRadius: 30),
+        BoxShadow(color: Color(0xFF232122), spreadRadius: 0.5, blurRadius: 16),
       ], color: Color(0xFF0B090A), borderRadius: BorderRadius.circular(8)),
       height: 104,
       child: Stack(
