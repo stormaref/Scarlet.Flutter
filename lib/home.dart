@@ -51,6 +51,7 @@ class HomeView extends GetView {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       FloatingActionButton.large(
+                        heroTag: "show",
                         onPressed: () {},
                         backgroundColor: MyColors.grayT5,
                         child: SvgPicture.asset(
@@ -60,6 +61,7 @@ class HomeView extends GetView {
                         ),
                       ),
                       FloatingActionButton.large(
+                        heroTag: "delete",
                         onPressed: () {},
                         backgroundColor: MyColors.lipstick,
                         child: SvgPicture.asset(
@@ -69,6 +71,7 @@ class HomeView extends GetView {
                         ),
                       ),
                       FloatingActionButton.large(
+                        heroTag: "bookmark",
                         onPressed: () {},
                         backgroundColor: MyColors.grayT5,
                         child: SvgPicture.asset(

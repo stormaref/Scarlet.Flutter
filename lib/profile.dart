@@ -123,14 +123,6 @@ class ProfileView extends GetView<ProfileController> {
                                   onPressed: () => showMedalModal(context),
                                   icon: MyIcons.info),
                             ),
-                            // Flexible(
-                            //   fit: FlexFit.loose,
-                            //   child: IconButton(
-                            //       iconSize: 0,
-                            //       visualDensity: VisualDensity.compact,
-                            //       onPressed: () => showMedalModal(),
-                            //       icon: MyIcons.info),
-                            // )
                           ],
                         ),
                       ),

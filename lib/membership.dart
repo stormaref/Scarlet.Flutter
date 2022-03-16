@@ -1,11 +1,10 @@
 import 'package:app/colors/my_colors.dart';
 import 'package:app/components/custom_button.dart';
-import 'package:app/components/custom_button_icon.dart';
 import 'package:app/components/white_text.dart';
 import 'package:app/icons/my_icons.dart';
+import 'package:app/landing_page.dart';
 import 'package:app/login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/get.dart';
 
 class Membership extends GetView {
@@ -20,13 +19,13 @@ class Membership extends GetView {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                  padding: EdgeInsets.only(top: 160),
+                  padding: const EdgeInsets.only(top: 160),
                   child: SizedBox(
                       width: double.infinity,
                       child:
                           CustomButton("Sign Up", () {}, MyColors.lipstick))),
               Padding(
-                padding: EdgeInsets.only(top: 32),
+                padding: const EdgeInsets.only(top: 32),
                 child: Row(
                   children: [
                     Expanded(
@@ -35,11 +34,11 @@ class Membership extends GetView {
                         decoration: BoxDecoration(color: MyColors.grayT3),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 24,
                     ),
                     WhiteText("OR", 14),
-                    SizedBox(
+                    const SizedBox(
                       width: 24,
                     ),
                     Expanded(
@@ -52,33 +51,28 @@ class Membership extends GetView {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 32),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: CustomButtonIcon("Continue With Google", () {},
-                      MyColors.grayT4, MyIcons.google),
-                ),
+                padding: const EdgeInsets.only(top: 32),
+                child: CustomButton(
+                    "Continue With Google", () {}, MyColors.grayT4,
+                    icon: MyIcons.google),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 16),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: CustomButton(
-                      "Login As a Guest", () {}, MyColors.grayT8,
-                      textColor: MyColors.grayT2),
-                ),
+                padding: const EdgeInsets.only(top: 16),
+                child: CustomButton("Login As a Guest", () {
+                  Get.to(LandingPage(
+                    title: "Main Page",
+                  ));
+                }, MyColors.grayT8, textColor: MyColors.grayT2),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 72),
+                padding: const EdgeInsets.only(top: 72),
                 child: WhiteText("Already Have an Account?", 15),
               ),
               Padding(
-                  padding: EdgeInsets.only(top: 16),
-                  child: SizedBox(
-                      width: double.infinity,
-                      child: CustomButton("Login", () {
-                        Get.to(LoginPage());
-                      }, MyColors.lipstick)))
+                  padding: const EdgeInsets.only(top: 16),
+                  child: CustomButton("Login", () {
+                    Get.to(LoginPage());
+                  }, MyColors.lipstick))
             ],
           ),
         ));
