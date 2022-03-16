@@ -21,7 +21,9 @@ class BookmarkView extends GetView {
           ),
           Container(
             padding: EdgeInsets.only(top: 128),
-            child: BookmarkCard(),
+            child: ListView(
+              children: [BookmarkCard()],
+            ),
           )
         ]),
       ),

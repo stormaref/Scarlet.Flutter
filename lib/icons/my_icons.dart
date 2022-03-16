@@ -80,4 +80,5 @@ abstract class MyIcons {
   static SvgPicture watchlistBookmarkDisabled = SvgPicture.asset(
     "assets/icons/watchlist_bookmark_disabled.svg",
   );
+  static SvgPicture google = SvgPicture.asset("assets/icons/google.svg");
 }

@@ -17,4 +17,6 @@ class MyColors {
   static Color grayT4 = Color(0xFF6C6B6C);
   static Color grayT5 = Color(0xFF858484);
   static Color grayT7 = Color(0xFFB5B5B5);
+  static Color grayT8 = Color(0xFFCECDCE);
+  static Color grayBlack = Color(0xFF0B090A);
 }

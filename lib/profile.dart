@@ -291,12 +291,9 @@ class ProfileView extends GetView<ProfileController> {
                   top: 36,
                   child: CustomTextField(
                       "Name",
-                      Padding(
-                        padding: EdgeInsets.all(10),
-                        child: SvgPicture.asset(
-                          "assets/icons/edit.svg",
-                          color: MyColors.grayT3,
-                        ),
+                      SvgPicture.asset(
+                        "assets/icons/edit.svg",
+                        color: MyColors.grayT3,
                       ),
                       // Icon(Icons.edit),
                       TextInputType.name),
@@ -345,11 +342,8 @@ class ProfileView extends GetView<ProfileController> {
                   top: 36,
                   child: CustomTextField(
                       "Year",
-                      Padding(
-                        padding: EdgeInsets.all(8),
-                        child: SvgPicture.asset("assets/icons/calendar.svg",
-                            color: MyColors.grayT3),
-                      ),
+                      SvgPicture.asset("assets/icons/calendar.svg",
+                          color: MyColors.grayT3),
                       TextInputType.number),
                 ),
                 Positioned(

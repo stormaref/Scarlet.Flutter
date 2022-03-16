@@ -24,7 +24,7 @@ class CustomTextField extends GetView {
           border: UnderlineInputBorder(
               borderRadius: BorderRadius.circular(4),
               borderSide: BorderSide.none),
-          prefixIcon: icon,
+          prefixIcon: Padding(padding: EdgeInsets.all(10), child: icon),
           // prefixIconConstraints: BoxConstraints.tight(),
         ));
   }
