@@ -43,21 +43,21 @@ class LandingPage extends GetView<LandingController> {
                 IconThemeData(color: MyColors.lipstick, opacity: 1),
             items: [
               BottomNavigationBarItem(
-                  icon: MyIcons.homeDisabled,
+                  icon: MyIcons().home(MyColors.grayT5),
                   label: "Home",
-                  activeIcon: MyIcons.homeEnabled),
+                  activeIcon: MyIcons().home(MyColors.lipstick)),
               BottomNavigationBarItem(
-                  icon: MyIcons.exploreDisabled,
+                  icon: MyIcons().explore(MyColors.grayT5),
                   label: "Explore",
-                  activeIcon: MyIcons.exploreEnabled),
+                  activeIcon: MyIcons().explore(MyColors.lipstick)),
               BottomNavigationBarItem(
-                  icon: MyIcons.watchlistBookmarkDisabled,
+                  icon: MyIcons().watchlistBookmark(MyColors.grayT5),
                   label: "Bookmark",
-                  activeIcon: MyIcons.watchlistBookmarkEnabled),
+                  activeIcon: MyIcons().watchlistBookmark(MyColors.lipstick)),
               BottomNavigationBarItem(
-                  icon: MyIcons.profileDisabled,
+                  icon: MyIcons().profile(MyColors.grayT5),
                   label: "Profile",
-                  activeIcon: MyIcons.profileEnabled),
+                  activeIcon: MyIcons().profile(MyColors.lipstick)),
             ]),
       );
     });

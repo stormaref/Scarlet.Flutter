@@ -21,7 +21,7 @@ class LineButton extends GetView {
           ),
           WhiteText(text, 15),
           const Spacer(),
-          MyIcons.arrowRight
+          MyIcons().arrowRight(Colors.white)
         ],
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,

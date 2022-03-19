@@ -6,16 +6,20 @@ class CustomTextField extends GetView {
   final String labelText;
   final Widget prefixIcon;
   final TextInputType inputType;
-  final Widget? suffixIcon;
-  final bool obscureText;
+  Widget? suffixIcon;
+  bool obscureText;
   final FormFieldSetter<String>? onSaved;
   final FormFieldValidator<String>? validator;
+  VoidCallback? toggleCallback;
+  TextEditingController? textEditingController;
 
   CustomTextField(this.labelText, this.prefixIcon, this.inputType,
       {this.suffixIcon,
       this.obscureText = false,
       this.onSaved,
-      this.validator});
+      this.validator,
+      this.textEditingController,
+      this.toggleCallback});
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +29,7 @@ class CustomTextField extends GetView {
         onSaved: onSaved,
         validator: validator,
         obscureText: obscureText,
+        controller: textEditingController,
         decoration: InputDecoration(
           hintStyle: TextStyle(color: MyColors.grayT3),
           labelText: labelText,
@@ -37,7 +42,10 @@ class CustomTextField extends GetView {
           prefixIcon:
               Padding(padding: const EdgeInsets.all(10), child: prefixIcon),
           suffixIcon: suffixIcon != null
-              ? Padding(padding: const EdgeInsets.all(10), child: suffixIcon)
+              ? GestureDetector(
+                  onTap: toggleCallback,
+                  child: Padding(
+                      padding: const EdgeInsets.all(10), child: suffixIcon))
               : const SizedBox(
                   width: 0,
                   height: 0,

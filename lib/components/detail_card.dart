@@ -54,7 +54,7 @@ class DetailCard extends GetView {
               top: 42,
               child: IconButton(
                 padding: EdgeInsets.all(0),
-                icon: MyIcons.arrowCircle,
+                icon: MyIcons().arrowCircle(Colors.white),
                 onPressed: buttonCallback,
               ))
         ],

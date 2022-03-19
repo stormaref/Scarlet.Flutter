@@ -4,7 +4,6 @@ import 'package:app/components/custom_progress.dart';
 import 'package:app/components/white_text.dart';
 import 'package:app/icons/my_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class BookmarkCard extends GetView {
@@ -57,7 +56,7 @@ class BookmarkCard extends GetView {
                           children: [
                             WhiteText("18 h Left", 11),
                             WhiteText("13/100", 11),
-                            MyIcons.show
+                            MyIcons().show(Colors.white)
                           ]),
                     )
                   ],

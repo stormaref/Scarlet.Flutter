@@ -121,7 +121,7 @@ class ProfileView extends GetView<ProfileController> {
                                   iconSize: 0,
                                   visualDensity: VisualDensity.compact,
                                   onPressed: () => showMedalModal(context),
-                                  icon: MyIcons.info),
+                                  icon: MyIcons().info(Colors.white)),
                             ),
                           ],
                         ),
@@ -150,7 +150,8 @@ class ProfileView extends GetView<ProfileController> {
                 top: 140,
                 right: 40,
                 child: IconButton(
-                    onPressed: () => editBanner(context), icon: MyIcons.edit)),
+                    onPressed: () => editBanner(context),
+                    icon: MyIcons().edit(Colors.white))),
             Align(
               alignment: Alignment.topCenter,
               child: Padding(
@@ -171,7 +172,7 @@ class ProfileView extends GetView<ProfileController> {
                           width: 32,
                           child: FloatingActionButton(
                             backgroundColor: MyColors.lipstick,
-                            child: MyIcons.camera,
+                            child: MyIcons().camera(Colors.white),
                             onPressed: () => showCameraModal(context),
                           ),
                         ),
@@ -251,14 +252,14 @@ class ProfileView extends GetView<ProfileController> {
   ListView GetInfoTabView(BuildContext context) {
     return ListView(
       children: [
-        DetailCard("Name", "Aref", MyIcons.profile, MyColors.lipstick,
-            () => ShowNameModal(context)),
-        DetailCard("Gender", "Male", MyIcons.gender, Color(0xFFE3344B),
-            () => ShowGenderModal(context)),
+        DetailCard("Name", "Aref", MyIcons().profile(Colors.white),
+            MyColors.lipstick, () => ShowNameModal(context)),
+        DetailCard("Gender", "Male", MyIcons().gender(Colors.white),
+            Color(0xFFE3344B), () => ShowGenderModal(context)),
         DetailCard(
           "Birth Year",
           "2000",
-          MyIcons.calendar,
+          MyIcons().calendar(Colors.white),
           MyColors.lipstick,
           () => ShowYearModal(context),
         )
@@ -440,7 +441,7 @@ class ProfileView extends GetView<ProfileController> {
                           FloatingActionButton.small(
                             onPressed: () {},
                             backgroundColor: MyColors.lipstick,
-                            child: MyIcons.delete,
+                            child: MyIcons().delete(Colors.white),
                           ),
                           SizedBox(
                             height: 12,
@@ -460,7 +461,7 @@ class ProfileView extends GetView<ProfileController> {
                           FloatingActionButton.small(
                             onPressed: () {},
                             backgroundColor: MyColors.lipstick,
-                            child: MyIcons.gallery,
+                            child: MyIcons().gallery(Colors.white),
                           ),
                           SizedBox(
                             height: 12,
@@ -480,7 +481,7 @@ class ProfileView extends GetView<ProfileController> {
                           FloatingActionButton.small(
                             onPressed: () {},
                             backgroundColor: MyColors.lipstick,
-                            child: MyIcons.camera,
+                            child: MyIcons().camera(Colors.white),
                           ),
                           SizedBox(
                             height: 12,
@@ -552,7 +553,7 @@ class ProfileView extends GetView<ProfileController> {
                         onTap: () => aboutUs(),
                         child: Row(
                           children: [
-                            MyIcons.info,
+                            MyIcons().info(Colors.white),
                             SizedBox(
                               width: 16,
                             ),
@@ -567,7 +568,7 @@ class ProfileView extends GetView<ProfileController> {
                         onTap: () => logout(),
                         child: Row(
                           children: [
-                            MyIcons.logout,
+                            MyIcons().logout(Colors.white),
                             SizedBox(
                               width: 16,
                             ),
@@ -610,7 +611,7 @@ class ProfileView extends GetView<ProfileController> {
                       onTap: () {},
                       child: Row(
                         children: [
-                          MyIcons.gallery,
+                          MyIcons().gallery(Colors.white),
                           SizedBox(
                             width: 16,
                           ),
@@ -625,7 +626,7 @@ class ProfileView extends GetView<ProfileController> {
                       onTap: () {},
                       child: Row(
                         children: [
-                          MyIcons.gallery,
+                          MyIcons().gallery(Colors.white),
                           SizedBox(
                             width: 16,
                           ),

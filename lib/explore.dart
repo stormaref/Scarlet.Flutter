@@ -29,18 +29,19 @@ class ExploreView extends GetView<ExploreController> {
                     child: IconButton(
                         alignment: Alignment.centerRight,
                         onPressed: () {},
-                        icon: MyIcons.search))
+                        icon: MyIcons().search(Colors.white)))
               ],
             ),
             Padding(
                 padding: const EdgeInsets.only(top: 36),
-                child: LineButton("Recommended TVShow For you", MyIcons.movie)),
+                child: LineButton("Recommended TVShow For you",
+                    MyIcons().movie(Colors.white))),
             Padding(
                 padding: const EdgeInsets.only(top: 24),
-                child: LineButton("New Releases", MyIcons.tv)),
+                child: LineButton("New Releases", MyIcons().tv(Colors.white))),
             Padding(
               padding: const EdgeInsets.only(top: 24),
-              child: LineButton("Populars", MyIcons.ticket),
+              child: LineButton("Populars", MyIcons().ticket(Colors.white)),
             ),
           ],
         ),
