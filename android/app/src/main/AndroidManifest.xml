@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.app">
+    package="com.scarletchair.android">
    <application
-        android:label="app"
-        android:name="${applicationName}"
+        android:label="Scarlet Chair"
+        android:name="Scarlet Chair"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

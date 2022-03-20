@@ -1,7 +1,6 @@
 import 'package:app/colors/my_colors.dart';
 import 'package:app/components/custom_button.dart';
 import 'package:app/components/white_text.dart';
-import 'package:app/icons/my_icons.dart';
 import 'package:app/landing_page.dart';
 import 'package:app/login_page.dart';
 import 'package:app/svgs/my_svgs.dart';
@@ -23,8 +22,10 @@ class Membership extends GetView {
                   padding: const EdgeInsets.only(top: 160),
                   child: SizedBox(
                       width: double.infinity,
-                      child:
-                          CustomButton("Sign Up", () {}, MyColors.lipstick))),
+                      child: CustomButton(
+                          "Sign Up",
+                          () => Get.to(() => LoginPage(), arguments: 2),
+                          MyColors.lipstick))),
               Padding(
                 padding: const EdgeInsets.only(top: 32),
                 child: Row(
@@ -71,9 +72,10 @@ class Membership extends GetView {
               ),
               Padding(
                   padding: const EdgeInsets.only(top: 16),
-                  child: CustomButton("Login", () {
-                    Get.to(LoginPage());
-                  }, MyColors.lipstick))
+                  child: CustomButton(
+                      "Login",
+                      () => Get.to(() => LoginPage(), arguments: 1),
+                      MyColors.lipstick))
             ],
           ),
         ));

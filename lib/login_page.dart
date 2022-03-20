@@ -11,9 +11,9 @@ import 'package:get/get.dart';
 class LoginPage extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(LoginController());
+    var type = Get.arguments;
+    var controller = Get.put(LoginController(type));
     return GetBuilder<LoginController>(builder: (controller) {
-      var textEditingController;
       return Scaffold(
         backgroundColor: MyColors.background,
         body: Container(
@@ -25,7 +25,7 @@ class LoginPage extends GetView<LoginController> {
               WhiteText("Welcome Back", 24),
               Padding(
                   padding: const EdgeInsets.only(top: 8),
-                  child: WhiteText("Login By Entering The Details Below", 15)),
+                  child: WhiteText(controller.getTitleText(), 15)),
               Padding(
                 padding: const EdgeInsets.only(top: 48),
                 child: CustomTextField(
@@ -35,7 +35,7 @@ class LoginPage extends GetView<LoginController> {
                       color: MyColors.grayT3,
                     ),
                     TextInputType.emailAddress,
-                    textEditingController: controller.textEditingController,
+                    textEditingController: controller.emailController,
                     toggleCallback: controller.clearText,
                     suffixIcon: controller.emailSuffixIcon
                         ? MyIcons().cancel(MyColors.grayT3)
@@ -51,6 +51,7 @@ class LoginPage extends GetView<LoginController> {
                     ),
                     TextInputType.visiblePassword,
                     obscureText: controller.obscureText,
+                    textEditingController: controller.passwordController,
                     suffixIcon: controller.obscureText
                         ? MyIcons().show(MyColors.grayT3)
                         : MyIcons().hide(MyColors.grayT3),
@@ -58,7 +59,8 @@ class LoginPage extends GetView<LoginController> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 36),
-                child: CustomButton("Login", () {}, MyColors.grayT2),
+                child: CustomButton(controller.getButtonLabel(),
+                    controller.buttonPressed, MyColors.grayT2),
               )
             ]),
           ),
