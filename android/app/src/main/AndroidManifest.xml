@@ -2,7 +2,7 @@
     package="com.scarletchair.android">
    <application
         android:label="Scarlet Chair"
-        android:name="Scarlet Chair"
+        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
