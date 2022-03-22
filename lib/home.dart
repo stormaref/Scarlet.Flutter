@@ -1,9 +1,10 @@
 import 'package:app/colors/my_colors.dart';
 import 'package:app/components/white_text.dart';
 import 'package:app/icons/my_icons.dart';
+import 'package:app/search_result.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/get.dart';
 
 class HomeView extends GetView {
   @override
@@ -21,7 +22,7 @@ class HomeView extends GetView {
                   children: [
                     WhiteText("Hi Aref", 25),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () => Get.to(() => SearchResult()),
                       icon: MyIcons().search(Colors.white),
                       splashRadius: 10,
                     )
@@ -86,21 +87,5 @@ class HomeView extends GetView {
         ),
       ),
     );
-    // body: Container(
-    //   child: Positioned(
-    //   bottom: 24,
-    //   child: Row(
-    //     children: [
-    //       FloatingActionButton.large(
-    //           onPressed: () {},
-    //           child: SvgPicture.asset(
-    //             "assets/icons/show.svg",
-    //             color: MyColors.grayT1,
-    //           ))
-    //     ],
-    //   ),
-    // )),
-
-    // alignment: Alignment.bottomLeft,
   }
 }
