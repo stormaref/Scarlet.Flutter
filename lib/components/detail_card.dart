@@ -1,4 +1,6 @@
+import 'package:app/components/white_text.dart';
 import 'package:app/icons/my_icons.dart';
+import 'package:app/tools/statics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
@@ -17,10 +19,8 @@ class DetailCard extends GetView {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      decoration: BoxDecoration(boxShadow: [
-        BoxShadow(color: Color(0xFF232122), spreadRadius: 0.5, blurRadius: 16),
-      ], color: Color(0xFF0B090A), borderRadius: BorderRadius.circular(8)),
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      decoration: Statics.purpleShadow,
       height: 104,
       child: Stack(
         children: [
@@ -37,24 +37,15 @@ class DetailCard extends GetView {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    title,
-                    style: TextStyle(color: Colors.white, fontSize: 15),
-                  ),
-                  Text(
-                    value,
-                    style: TextStyle(color: Colors.white, fontSize: 11),
-                  )
-                ],
+                children: [WhiteText(title, 15), WhiteText(value, 11)],
               )),
           Positioned(
               right: 18,
               bottom: 42,
               top: 42,
               child: IconButton(
-                padding: EdgeInsets.all(0),
-                icon: MyIcons().arrowCircle(Colors.white),
+                padding: const EdgeInsets.all(0),
+                icon: MyIcons().arrowBottomCircle(Colors.white),
                 onPressed: buttonCallback,
               ))
         ],

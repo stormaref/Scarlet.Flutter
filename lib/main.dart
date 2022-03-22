@@ -1,4 +1,4 @@
-import 'package:app/membership.dart';
+import 'package:app/search_result.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +18,7 @@ class MyApp extends GetView {
         primarySwatch: Colors.blue,
       ),
       // home: LandingPage(title: 'Landing Page'),
-      home: Membership(),
+      home: SearchResult(),
     );
   }
 }

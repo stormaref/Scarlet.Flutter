@@ -19,4 +19,9 @@ class MyColors {
   static Color grayT7 = Color(0xFFB5B5B5);
   static Color grayT8 = Color(0xFFCECDCE);
   static Color grayBlack = Color(0xFF0B090A);
+  static Color imdb = Color(0xFFFDE151);
+  static Color primaryT2 = Color(0xFFE3344B);
+  static Color meta = Color(0xFF8AE7A4);
+  static Color clock = Color(0xFFBEC2C4);
+  static Color devider = Color(0xFF6D6B6C);
 }

@@ -1,12 +1,9 @@
-import 'package:app/colors/my_colors.dart';
-import 'package:app/components/white_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class CustomCircularProgress extends GetView {
   final Color color;
-  final int progress;
+  final double progress;
   final int scale;
 
   CustomCircularProgress(this.color, this.progress, this.scale);
@@ -22,10 +19,16 @@ class CustomCircularProgress extends GetView {
           strokeWidth: 1,
         ),
         Text(
-          progress.toString(),
+          getLabel(),
           style: TextStyle(color: color),
         )
       ],
     );
+  }
+
+  String getLabel() {
+    var rounded = progress.toInt();
+    if (rounded == progress) return rounded.toString();
+    return progress.toString();
   }
 }

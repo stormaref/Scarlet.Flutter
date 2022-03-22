@@ -6,8 +6,12 @@ class MyIcons {
         "assets/icons/arrow_bottom.svg",
         color: color,
       );
-  SvgPicture arrowCircle(Color color) => SvgPicture.asset(
-        "assets/icons/arrow_circle.svg",
+  SvgPicture arrowUpCircle(Color color) => SvgPicture.asset(
+        "assets/icons/arrow_up_circle.svg",
+        color: color,
+      );
+  SvgPicture arrowBottomCircle(Color color) => SvgPicture.asset(
+        "assets/icons/arrow_bottom_circle.svg",
         color: color,
       );
   SvgPicture arrowRight(Color color) => SvgPicture.asset(

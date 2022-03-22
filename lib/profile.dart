@@ -11,6 +11,7 @@ import 'package:app/components/white_text.dart';
 import 'package:app/controllers/profile_controller.dart';
 import 'package:app/icons/my_icons.dart';
 import 'package:app/svgs/my_svgs.dart';
+import 'package:app/tools/statics.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -28,7 +29,7 @@ class ProfileView extends GetView<ProfileController> {
           children: [
             Container(
               width: double.infinity,
-              margin: EdgeInsets.only(left: 16, right: 16, top: 36),
+              margin: const EdgeInsets.only(left: 16, right: 16, top: 36),
               height: 160,
               color: MyColors.grayT1,
               child: Align(
@@ -43,23 +44,16 @@ class ProfileView extends GetView<ProfileController> {
             Align(
               child: Container(
                 width: double.infinity,
-                margin: EdgeInsets.only(left: 48, right: 48, top: 180),
+                margin: const EdgeInsets.only(left: 48, right: 48, top: 180),
                 height: 220,
-                color: Color(0xFF0B090A),
+                color: const Color(0xFF0B090A),
                 child: Stack(
                   children: [
-                    Container(
-                      decoration: BoxDecoration(boxShadow: [
-                        BoxShadow(
-                            color: Color(0xFF232122),
-                            spreadRadius: 8,
-                            blurRadius: 20),
-                      ], color: Color(0xFF0B090A)),
-                    ),
+                    Container(decoration: Statics.purpleShadow),
                     Align(
                       alignment: Alignment.topCenter,
                       child: Padding(
-                          padding: EdgeInsets.only(top: 72),
+                          padding: const EdgeInsets.only(top: 72),
                           child: Text(
                             "Theresa Webb",
                             // style: TextStyle(
@@ -73,13 +67,13 @@ class ProfileView extends GetView<ProfileController> {
                           )),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 100),
+                      padding: const EdgeInsets.only(top: 100),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SvgPicture.asset("assets/svg/bronze.svg"),
-                          SizedBox(
+                          const SizedBox(
                             width: 8,
                           ),
                           Text(
@@ -92,19 +86,20 @@ class ProfileView extends GetView<ProfileController> {
                     Align(
                       alignment: Alignment.topCenter,
                       child: Padding(
-                        padding: EdgeInsets.only(top: 132, right: 36, left: 36),
+                        padding: const EdgeInsets.only(
+                            top: 132, right: 36, left: 36),
                         child: CustomProgress(0.4),
                       ),
                     ),
                     Align(
                       alignment: Alignment.topCenter,
                       child: Padding(
-                        padding: EdgeInsets.only(top: 144),
+                        padding: const EdgeInsets.only(top: 144),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Spacer(),
+                            const Spacer(),
                             Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -130,7 +125,7 @@ class ProfileView extends GetView<ProfileController> {
                     Align(
                       alignment: Alignment.topCenter,
                       child: Padding(
-                          padding: EdgeInsets.only(top: 184),
+                          padding: const EdgeInsets.only(top: 184),
                           child: Container(
                             height: 24,
                             width: 64,
@@ -155,7 +150,7 @@ class ProfileView extends GetView<ProfileController> {
             Align(
               alignment: Alignment.topCenter,
               child: Padding(
-                padding: EdgeInsets.only(top: 128),
+                padding: const EdgeInsets.only(top: 128),
                 child: Container(
                   width: 112,
                   height: 112,
@@ -185,16 +180,16 @@ class ProfileView extends GetView<ProfileController> {
             Align(
                 alignment: Alignment.topCenter,
                 child: Padding(
-                    padding: EdgeInsets.only(top: 428),
+                    padding: const EdgeInsets.only(top: 428),
                     child: DefaultTabController(
                         length: 3,
                         child: Column(
                           children: [
                             TabBar(
                               tabs: [
-                                Tab(text: "Info"),
-                                Tab(text: "Activity"),
-                                Tab(text: "List")
+                                const Tab(text: "Info"),
+                                const Tab(text: "Activity"),
+                                const Tab(text: "List")
                               ],
                               indicatorColor: MyColors.lipstick,
                               indicatorSize: TabBarIndicatorSize.label,
@@ -206,7 +201,7 @@ class ProfileView extends GetView<ProfileController> {
                               children: [
                                 GetInfoTabView(context),
                                 GetActivityTabView(),
-                                Text("data"),
+                                const Text("data"),
                               ],
                             ))
                           ],
@@ -222,13 +217,13 @@ class ProfileView extends GetView<ProfileController> {
       alignment: Alignment.topCenter,
       children: [
         Container(
-          margin: EdgeInsets.only(top: 24, left: 48, right: 48),
+          margin: const EdgeInsets.only(top: 24, left: 48, right: 48),
           height: 88,
           width: double.infinity,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8), color: MyColors.grayT1),
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 8),
+            padding: const EdgeInsets.symmetric(vertical: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -255,7 +250,7 @@ class ProfileView extends GetView<ProfileController> {
         DetailCard("Name", "Aref", MyIcons().profile(Colors.white),
             MyColors.lipstick, () => ShowNameModal(context)),
         DetailCard("Gender", "Male", MyIcons().gender(Colors.white),
-            Color(0xFFE3344B), () => ShowGenderModal(context)),
+            const Color(0xFFE3344B), () => ShowGenderModal(context)),
         DetailCard(
           "Birth Year",
           "2000",
@@ -301,9 +296,9 @@ class ProfileView extends GetView<ProfileController> {
                           flex: 35,
                           child:
                               CustomButton("Cancel", () {}, MyColors.grayT4)),
-                      Expanded(
+                      const Expanded(
                         flex: 5,
-                        child: SizedBox(),
+                        child: const SizedBox(),
                       ),
                       Expanded(
                         flex: 60,
@@ -349,9 +344,9 @@ class ProfileView extends GetView<ProfileController> {
                           flex: 35,
                           child:
                               CustomButton("Cancel", () {}, MyColors.grayT4)),
-                      Expanded(
+                      const Expanded(
                         flex: 5,
-                        child: SizedBox(),
+                        child: const SizedBox(),
                       ),
                       Expanded(
                         flex: 60,
@@ -395,9 +390,9 @@ class ProfileView extends GetView<ProfileController> {
                           flex: 35,
                           child:
                               CustomButton("Cancel", () {}, MyColors.grayT4)),
-                      Expanded(
+                      const Expanded(
                         flex: 5,
-                        child: SizedBox(),
+                        child: const SizedBox(),
                       ),
                       Expanded(
                         flex: 60,
@@ -423,12 +418,12 @@ class ProfileView extends GetView<ProfileController> {
             child: Stack(
               alignment: Alignment.topCenter,
               children: [
-                Positioned(
+                const Positioned(
                   left: 16,
                   top: 24,
                   child: Text(
                     "Profile photo",
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                   ),
                 ),
                 Positioned(
@@ -443,17 +438,17 @@ class ProfileView extends GetView<ProfileController> {
                             backgroundColor: MyColors.lipstick,
                             child: MyIcons().delete(Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 12,
                           ),
-                          Text(
+                          const Text(
                             "Remove \nphoto",
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white, fontSize: 11),
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 24,
                       ),
                       Column(
@@ -463,17 +458,18 @@ class ProfileView extends GetView<ProfileController> {
                             backgroundColor: MyColors.lipstick,
                             child: MyIcons().gallery(Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 12,
                           ),
-                          Text(
+                          const Text(
                             "Gallery\n",
                             textAlign: TextAlign.center,
-                            style: TextStyle(color: Colors.white, fontSize: 11),
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 11),
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 24,
                       ),
                       Column(
@@ -483,13 +479,14 @@ class ProfileView extends GetView<ProfileController> {
                             backgroundColor: MyColors.lipstick,
                             child: MyIcons().camera(Colors.white),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 12,
                           ),
-                          Text(
+                          const Text(
                             "Camera\n",
                             textAlign: TextAlign.center,
-                            style: TextStyle(color: Colors.white, fontSize: 11),
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 11),
                           )
                         ],
                       ),
@@ -510,13 +507,13 @@ class ProfileView extends GetView<ProfileController> {
           child: GetBuilder<ProfileController>(
             builder: (controller) {
               return RadioListTile(
-                visualDensity: VisualDensity(
+                visualDensity: const VisualDensity(
                     horizontal: VisualDensity.minimumDensity,
                     vertical: VisualDensity.minimumDensity),
                 contentPadding: EdgeInsets.zero,
                 dense: true,
                 title: Text(gender.name.capitalizeFirst.toString(),
-                    style: TextStyle(color: Colors.white, fontSize: 16)),
+                    style: const TextStyle(color: Colors.white, fontSize: 16)),
                 value: gender.index,
                 groupValue: controller.selectedGender,
                 onChanged: (int? value) {
@@ -554,14 +551,14 @@ class ProfileView extends GetView<ProfileController> {
                         child: Row(
                           children: [
                             MyIcons().info(Colors.white),
-                            SizedBox(
+                            const SizedBox(
                               width: 16,
                             ),
                             WhiteText("About us", 15)
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       GestureDetector(
@@ -569,7 +566,7 @@ class ProfileView extends GetView<ProfileController> {
                         child: Row(
                           children: [
                             MyIcons().logout(Colors.white),
-                            SizedBox(
+                            const SizedBox(
                               width: 16,
                             ),
                             WhiteText("Logout", 15)
@@ -600,19 +597,20 @@ class ProfileView extends GetView<ProfileController> {
             color: MyColors.background,
             height: 148,
             child: Padding(
-              padding: EdgeInsets.only(left: 16),
+              padding: const EdgeInsets.only(left: 16),
               child: Column(
                 children: [
                   Padding(
-                      padding: EdgeInsets.only(top: 12), child: WhiteLine()),
+                      padding: const EdgeInsets.only(top: 12),
+                      child: WhiteLine()),
                   Padding(
-                    padding: EdgeInsets.only(top: 24),
+                    padding: const EdgeInsets.only(top: 24),
                     child: GestureDetector(
                       onTap: () {},
                       child: Row(
                         children: [
                           MyIcons().gallery(Colors.white),
-                          SizedBox(
+                          const SizedBox(
                             width: 16,
                           ),
                           WhiteText("Change Cover from TvShows", 16)
@@ -621,13 +619,13 @@ class ProfileView extends GetView<ProfileController> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: 36),
+                    padding: const EdgeInsets.only(top: 36),
                     child: GestureDetector(
                       onTap: () {},
                       child: Row(
                         children: [
                           MyIcons().gallery(Colors.white),
-                          SizedBox(
+                          const SizedBox(
                             width: 16,
                           ),
                           WhiteText("Change Cover from TvShows", 16)
