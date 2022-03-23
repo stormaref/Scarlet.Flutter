@@ -1,3 +1,4 @@
+import 'package:app/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
@@ -7,12 +8,14 @@ class LoginController extends GetxController {
   TextEditingController? passwordController;
   bool emailSuffixIcon = false;
   int type;
+  late AuthService authService;
 
   LoginController(this.type) {
     emailController = TextEditingController();
     emailController?.addListener(emailTextListener);
     passwordController = TextEditingController();
     passwordController?.addListener(passwordTextListener);
+    authService = AuthService();
   }
 
   passwordToggle() {
@@ -69,7 +72,9 @@ class LoginController extends GetxController {
 
   void passwordTextListener() {}
 
-  void login(String email, String password) {}
+  void login(String email, String password) {
+    authService.login(email, password);
+  }
 
   void signup(String text, String text2) {}
 }

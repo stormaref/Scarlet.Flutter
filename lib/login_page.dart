@@ -60,7 +60,7 @@ class LoginPage extends GetView<LoginController> {
               Padding(
                 padding: const EdgeInsets.only(top: 36),
                 child: CustomButton(controller.getButtonLabel(),
-                    controller.buttonPressed, MyColors.grayT2),
+                    controller.buttonPressed, MyColors.lipstick),
               )
             ]),
           ),
