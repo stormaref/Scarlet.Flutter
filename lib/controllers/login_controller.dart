@@ -1,4 +1,5 @@
 import 'package:app/services/auth_service.dart';
+import 'package:app/services/storage_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
@@ -8,14 +9,16 @@ class LoginController extends GetxController {
   TextEditingController? passwordController;
   bool emailSuffixIcon = false;
   int type;
-  late AuthService authService;
+  late AuthService _authService;
+  late StorageService _storageService;
 
   LoginController(this.type) {
     emailController = TextEditingController();
     emailController?.addListener(emailTextListener);
     passwordController = TextEditingController();
     passwordController?.addListener(passwordTextListener);
-    authService = AuthService();
+    _authService = AuthService();
+    _storageService = StorageService();
   }
 
   passwordToggle() {
@@ -72,9 +75,12 @@ class LoginController extends GetxController {
 
   void passwordTextListener() {}
 
-  void login(String email, String password) {
-    authService.login(email, password);
+  void login(String email, String password) async {
+    var response = await _authService.login(email, password);
+    if (response.succeeded) {
+      await _storageService.writeToken(response.token, response.refreshToken);
+    }
   }
 
-  void signup(String text, String text2) {}
+  void signup(String email, String password) {}
 }
