@@ -10,13 +10,9 @@ import 'controllers/landing_controller.dart';
 import 'profile.dart';
 
 class LandingPage extends GetView<LandingController> {
-  LandingPage({Key? key, required this.title}) : super(key: key);
-
-  var controller = Get.put(LandingController());
-  final String title;
-
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(LandingController());
     return GetBuilder<LandingController>(builder: (controller) {
       return Scaffold(
         backgroundColor: MyColors.background,

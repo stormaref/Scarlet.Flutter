@@ -1,7 +1,8 @@
+import 'package:app/landing_page.dart';
 import 'package:app/services/auth_service.dart';
-import 'package:app/services/storage_service.dart';
+import 'package:app/services/token_service.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/get.dart';
 
 class LoginController extends GetxController {
   bool obscureText = true;
@@ -10,7 +11,7 @@ class LoginController extends GetxController {
   bool emailSuffixIcon = false;
   int type;
   late AuthService _authService;
-  late StorageService _storageService;
+  late TokenService _storageService;
 
   LoginController(this.type) {
     emailController = TextEditingController();
@@ -18,7 +19,7 @@ class LoginController extends GetxController {
     passwordController = TextEditingController();
     passwordController?.addListener(passwordTextListener);
     _authService = AuthService();
-    _storageService = StorageService();
+    _storageService = TokenService();
   }
 
   passwordToggle() {
@@ -79,6 +80,7 @@ class LoginController extends GetxController {
     var response = await _authService.login(email, password);
     if (response.succeeded) {
       await _storageService.writeToken(response.token, response.refreshToken);
+      Get.to(() => LandingPage());
     }
   }
 

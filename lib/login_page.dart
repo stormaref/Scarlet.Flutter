@@ -37,6 +37,9 @@ class LoginPage extends GetView<LoginController> {
                     TextInputType.emailAddress,
                     textEditingController: controller.emailController,
                     toggleCallback: controller.clearText,
+                    validator: (value) => value != null
+                        ? (GetUtils.isEmail(value) ? null : "Email is invalid")
+                        : null,
                     suffixIcon: controller.emailSuffixIcon
                         ? MyIcons().cancel(MyColors.grayT3)
                         : null),

@@ -60,11 +60,8 @@ class Membership extends GetView {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 16),
-                child: CustomButton("Login As a Guest", () {
-                  Get.to(LandingPage(
-                    title: "Main Page",
-                  ));
-                }, MyColors.grayT8, textColor: MyColors.grayT2),
+                child: CustomButton("Login As a Guest", () {}, MyColors.grayT8,
+                    textColor: MyColors.grayT2),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 72),

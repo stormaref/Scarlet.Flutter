@@ -11,7 +11,7 @@ class SearchResult extends GetView {
       body: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: ListView.separated(
-              itemBuilder: (ctx, i) => RecommendedCard(),
+              itemBuilder: (ctx, i) => RecommendedCard(i),
               separatorBuilder: (ctx, i) {
                 return const SizedBox(
                   height: 24,

@@ -12,14 +12,14 @@ import 'package:app/controllers/profile_controller.dart';
 import 'package:app/icons/my_icons.dart';
 import 'package:app/svgs/my_svgs.dart';
 import 'package:app/tools/statics.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProfileView extends GetView<ProfileController> {
-  final controller = Get.put(ProfileController());
+  @override
+  var controller = Get.put(ProfileController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -317,45 +317,49 @@ class ProfileView extends GetView<ProfileController> {
     return showModalBottomSheet(
         context: context,
         builder: (BuildContext context) {
-          return Container(
-            height: 200,
-            width: double.infinity,
-            color: MyColors.background,
-            child: Stack(
-              alignment: Alignment.topCenter,
-              children: [
-                Positioned(
-                  right: 16,
-                  left: 16,
-                  top: 36,
-                  child: CustomTextField(
-                      "Year",
-                      SvgPicture.asset("assets/icons/calendar.svg",
-                          color: MyColors.grayT3),
-                      TextInputType.number),
-                ),
-                Positioned(
-                  left: 16,
-                  right: 16,
-                  top: 108,
-                  child: Row(
-                    children: [
-                      Expanded(
-                          flex: 35,
-                          child:
-                              CustomButton("Cancel", () {}, MyColors.grayT4)),
-                      const Expanded(
-                        flex: 5,
-                        child: const SizedBox(),
-                      ),
-                      Expanded(
-                        flex: 60,
-                        child: CustomButton("Update", () {}, MyColors.lipstick),
-                      )
-                    ],
+          return Padding(
+            padding: MediaQuery.of(context).viewInsets,
+            child: Container(
+              height: 200,
+              width: double.infinity,
+              color: MyColors.background,
+              child: Stack(
+                alignment: Alignment.topCenter,
+                children: [
+                  Positioned(
+                    right: 16,
+                    left: 16,
+                    top: 36,
+                    child: CustomTextField(
+                        "Year",
+                        SvgPicture.asset("assets/icons/calendar.svg",
+                            color: MyColors.grayT3),
+                        TextInputType.number),
                   ),
-                )
-              ],
+                  Positioned(
+                    left: 16,
+                    right: 16,
+                    top: 108,
+                    child: Row(
+                      children: [
+                        Expanded(
+                            flex: 35,
+                            child:
+                                CustomButton("Cancel", () {}, MyColors.grayT4)),
+                        const Expanded(
+                          flex: 5,
+                          child: const SizedBox(),
+                        ),
+                        Expanded(
+                          flex: 60,
+                          child:
+                              CustomButton("Update", () {}, MyColors.lipstick),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           );
         });

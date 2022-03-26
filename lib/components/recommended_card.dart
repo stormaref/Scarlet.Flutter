@@ -9,11 +9,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class RecommendedCard extends GetView<ReommendedCardController> {
+class RecommendedCard extends GetView<RecommendedCardController> {
+  final int id;
+
+  RecommendedCard(this.id);
+
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(ReommendedCardController());
-    return GetBuilder<ReommendedCardController>(builder: (controller) {
+    var controller = Get.put(RecommendedCardController(id));
+    return GetBuilder<RecommendedCardController>(builder: (controller) {
       return Container(
         decoration: Statics.purpleShadow,
         width: 328,
@@ -36,8 +40,8 @@ class RecommendedCard extends GetView<ReommendedCardController> {
                         top: 0,
                         left: 16,
                         child: GestureDetector(
-                            onTap: controller.bookmark,
-                            child: controller.isBookmarked
+                            onTap: () => controller.bookmark(id),
+                            child: controller.isBookmarked(id)
                                 ? MySvgs.bookmarked
                                 : MySvgs.bookmark)),
                     Stack(
@@ -102,8 +106,8 @@ class RecommendedCard extends GetView<ReommendedCardController> {
                       WhiteText("100 eps", 11),
                       WhiteText("Running", 11),
                       GestureDetector(
-                          onTap: controller.showHide,
-                          child: controller.isExpanded
+                          onTap: () => controller.showHide(id),
+                          child: controller.isExpanded(id)
                               ? MyIcons().arrowUpCircle(Colors.white)
                               : MyIcons().arrowBottomCircle(Colors.white))
                     ],
@@ -113,7 +117,7 @@ class RecommendedCard extends GetView<ReommendedCardController> {
               ),
             ],
           ),
-          if (controller.isExpanded)
+          if (controller.isExpanded(id))
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Column(
