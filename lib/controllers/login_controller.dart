@@ -76,7 +76,7 @@ class LoginController extends GetxController {
 
   void passwordTextListener() {}
 
-  void login(String email, String password) async {
+  Future login(String email, String password) async {
     var response = await _authService.login(email, password);
     if (response.succeeded) {
       await _storageService.writeToken(response.token, response.refreshToken);
@@ -84,5 +84,8 @@ class LoginController extends GetxController {
     }
   }
 
-  void signup(String email, String password) {}
+  Future signup(String email, String password) async {
+    var response = await _authService.signup(email, password);
+    if (response.succeeded) {}
+  }
 }

@@ -22,194 +22,196 @@ class ProfileView extends GetView<ProfileController> {
   var controller = Get.put(ProfileController());
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: MyColors.background,
-      body: Center(
-        child: Stack(
-          children: [
-            Container(
-              width: double.infinity,
-              margin: const EdgeInsets.only(left: 16, right: 16, top: 36),
-              height: 160,
-              color: MyColors.grayT1,
-              child: Align(
-                alignment: Alignment.topRight,
-                child: IconButton(
-                    splashRadius: 1,
-                    icon:
-                        Icon(Icons.more_vert_outlined, color: MyColors.grayT7),
-                    onPressed: () => showOptionsModal(context)),
-              ),
-            ),
-            Align(
-              child: Container(
+    return GetBuilder<ProfileController>(builder: (controller) {
+      return Scaffold(
+        backgroundColor: MyColors.background,
+        body: Center(
+          child: Stack(
+            children: [
+              Container(
                 width: double.infinity,
-                margin: const EdgeInsets.only(left: 48, right: 48, top: 180),
-                height: 220,
-                color: const Color(0xFF0B090A),
-                child: Stack(
-                  children: [
-                    Container(decoration: Statics.purpleShadow),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Padding(
-                          padding: const EdgeInsets.only(top: 72),
-                          child: Text(
-                            "Theresa Webb",
-                            // style: TextStyle(
-                            //   color: Colors.white,
-                            //   fontSize: 13,
-                            // ),
-                            style: GoogleFonts.nunito(
-                                color: Colors.white,
-                                fontSize: 13,
-                                fontWeight: FontWeight.bold),
-                          )),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 100),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset("assets/svg/bronze.svg"),
-                          const SizedBox(
-                            width: 8,
-                          ),
-                          Text(
-                            "Bronze",
-                            style: TextStyle(color: MyColors.bronze),
-                          )
-                        ],
+                margin: const EdgeInsets.only(left: 16, right: 16, top: 36),
+                height: 160,
+                color: MyColors.grayT1,
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: IconButton(
+                      splashRadius: 1,
+                      icon: Icon(Icons.more_vert_outlined,
+                          color: MyColors.grayT7),
+                      onPressed: () => showOptionsModal(context)),
+                ),
+              ),
+              Align(
+                child: Container(
+                  width: double.infinity,
+                  margin: const EdgeInsets.only(left: 48, right: 48, top: 180),
+                  height: 220,
+                  color: const Color(0xFF0B090A),
+                  child: Stack(
+                    children: [
+                      Container(decoration: Statics.purpleShadow),
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: Padding(
+                            padding: const EdgeInsets.only(top: 72),
+                            child: Text(
+                              "Theresa Webb",
+                              // style: TextStyle(
+                              //   color: Colors.white,
+                              //   fontSize: 13,
+                              // ),
+                              style: GoogleFonts.nunito(
+                                  color: Colors.white,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold),
+                            )),
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            top: 132, right: 36, left: 36),
-                        child: CustomProgress(0.4),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 144),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 100),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Spacer(),
-                            Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  WhiteText("70 pts to ", 13),
-                                  Text(
-                                    "silver",
-                                    style: GoogleFonts.nunito(
-                                        fontSize: 13, color: MyColors.silver),
-                                  ),
-                                ]),
-                            Expanded(
-                              child: IconButton(
-                                  alignment: Alignment.centerLeft,
-                                  iconSize: 0,
-                                  visualDensity: VisualDensity.compact,
-                                  onPressed: () => showMedalModal(context),
-                                  icon: MyIcons().info(Colors.white)),
+                            SvgPicture.asset("assets/svg/bronze.svg"),
+                            const SizedBox(
+                              width: 8,
                             ),
+                            Text(
+                              "Bronze",
+                              style: TextStyle(color: MyColors.bronze),
+                            )
                           ],
                         ),
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Padding(
-                          padding: const EdgeInsets.only(top: 184),
-                          child: Container(
-                            height: 24,
-                            width: 64,
-                            alignment: Alignment.center,
-                            child: WhiteText("80 pts", 11),
-                            decoration: BoxDecoration(
-                                color: MyColors.lipstick,
-                                borderRadius: BorderRadius.circular(4)),
-                          )),
-                    ),
-                  ],
-                ),
-              ),
-              alignment: Alignment.topCenter,
-            ),
-            Positioned(
-                top: 140,
-                right: 40,
-                child: IconButton(
-                    onPressed: () => editBanner(context),
-                    icon: MyIcons().edit(Colors.white))),
-            Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 128),
-                child: Container(
-                  width: 112,
-                  height: 112,
-                  child: Stack(
-                    children: [
-                      CircleAvatar(
-                        radius: 56,
-                        child: MySvgs.FemaleAvatar,
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              top: 132, right: 36, left: 36),
+                          child: CustomProgress(0.4),
+                        ),
                       ),
                       Align(
-                        alignment: Alignment.bottomRight,
-                        child: SizedBox(
-                          height: 32,
-                          width: 32,
-                          child: FloatingActionButton(
-                            backgroundColor: MyColors.lipstick,
-                            child: MyIcons().camera(Colors.white),
-                            onPressed: () => showCameraModal(context),
+                        alignment: Alignment.topCenter,
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 144),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Spacer(),
+                              Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    WhiteText("70 pts to ", 13),
+                                    Text(
+                                      "silver",
+                                      style: GoogleFonts.nunito(
+                                          fontSize: 13, color: MyColors.silver),
+                                    ),
+                                  ]),
+                              Expanded(
+                                child: IconButton(
+                                    alignment: Alignment.centerLeft,
+                                    iconSize: 0,
+                                    visualDensity: VisualDensity.compact,
+                                    onPressed: () => showMedalModal(context),
+                                    icon: MyIcons().info(Colors.white)),
+                              ),
+                            ],
                           ),
                         ),
-                      )
+                      ),
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: Padding(
+                            padding: const EdgeInsets.only(top: 184),
+                            child: Container(
+                              height: 24,
+                              width: 64,
+                              alignment: Alignment.center,
+                              child: WhiteText("80 pts", 11),
+                              decoration: BoxDecoration(
+                                  color: MyColors.lipstick,
+                                  borderRadius: BorderRadius.circular(4)),
+                            )),
+                      ),
                     ],
                   ),
                 ),
+                alignment: Alignment.topCenter,
               ),
-            ),
-            Align(
+              Positioned(
+                  top: 140,
+                  right: 40,
+                  child: IconButton(
+                      onPressed: () => editBanner(context),
+                      icon: MyIcons().edit(Colors.white))),
+              Align(
                 alignment: Alignment.topCenter,
                 child: Padding(
-                    padding: const EdgeInsets.only(top: 428),
-                    child: DefaultTabController(
-                        length: 3,
-                        child: Column(
-                          children: [
-                            TabBar(
-                              tabs: [
-                                const Tab(text: "Info"),
-                                const Tab(text: "Activity"),
-                                const Tab(text: "List")
-                              ],
-                              indicatorColor: MyColors.lipstick,
-                              indicatorSize: TabBarIndicatorSize.label,
-                              unselectedLabelColor: Colors.white,
-                              labelColor: MyColors.lipstick,
+                  padding: const EdgeInsets.only(top: 128),
+                  child: Container(
+                    width: 112,
+                    height: 112,
+                    child: Stack(
+                      children: [
+                        CircleAvatar(
+                          radius: 56,
+                          child: MySvgs.FemaleAvatar,
+                        ),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: SizedBox(
+                            height: 32,
+                            width: 32,
+                            child: FloatingActionButton(
+                              backgroundColor: MyColors.lipstick,
+                              child: MyIcons().camera(Colors.white),
+                              onPressed: () => showCameraModal(context),
                             ),
-                            Expanded(
-                                child: TabBarView(
-                              children: [
-                                GetInfoTabView(context),
-                                GetActivityTabView(),
-                                const Text("data"),
-                              ],
-                            ))
-                          ],
-                        ))))
-          ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Align(
+                  alignment: Alignment.topCenter,
+                  child: Padding(
+                      padding: const EdgeInsets.only(top: 428),
+                      child: DefaultTabController(
+                          length: 3,
+                          child: Column(
+                            children: [
+                              TabBar(
+                                tabs: [
+                                  const Tab(text: "Info"),
+                                  const Tab(text: "Activity"),
+                                  const Tab(text: "List")
+                                ],
+                                indicatorColor: MyColors.lipstick,
+                                indicatorSize: TabBarIndicatorSize.label,
+                                unselectedLabelColor: Colors.white,
+                                labelColor: MyColors.lipstick,
+                              ),
+                              Expanded(
+                                  child: TabBarView(
+                                children: [
+                                  GetInfoTabView(context),
+                                  GetActivityTabView(),
+                                  const Text("data"),
+                                ],
+                              ))
+                            ],
+                          ))))
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 
   Stack GetActivityTabView() {
@@ -247,13 +249,23 @@ class ProfileView extends GetView<ProfileController> {
   ListView GetInfoTabView(BuildContext context) {
     return ListView(
       children: [
-        DetailCard("Name", "Aref", MyIcons().profile(Colors.white),
-            MyColors.lipstick, () => ShowNameModal(context)),
-        DetailCard("Gender", "Male", MyIcons().gender(Colors.white),
-            const Color(0xFFE3344B), () => ShowGenderModal(context)),
+        DetailCard(
+            "Name",
+            controller.name ??= "Aref",
+            MyIcons().profile(Colors.white),
+            MyColors.lipstick,
+            () => ShowNameModal(context)),
+        DetailCard(
+            "Gender",
+            controller.getGender(),
+            MyIcons().gender(Colors.white),
+            const Color(0xFFE3344B),
+            () => ShowGenderModal(context)),
         DetailCard(
           "Birth Year",
-          "2000",
+          controller.birthYear != null
+              ? controller.birthYear.toString()
+              : "Unknown",
           MyIcons().calendar(Colors.white),
           MyColors.lipstick,
           () => ShowYearModal(context),
@@ -519,7 +531,7 @@ class ProfileView extends GetView<ProfileController> {
                 title: Text(gender.name.capitalizeFirst.toString(),
                     style: const TextStyle(color: Colors.white, fontSize: 16)),
                 value: gender.index,
-                groupValue: controller.selectedGender,
+                groupValue: controller.gender?.index,
                 onChanged: (int? value) {
                   controller.onRadioButtonClick(value);
                 },

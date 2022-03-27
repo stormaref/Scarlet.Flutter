@@ -1,4 +1,5 @@
 import 'package:app/models/auth_response.dart';
+import 'package:app/models/bool_result.dart';
 import 'package:app/models/login_model.dart';
 import 'package:app/models/refresh_token_model.dart';
 import 'package:app/tools/statics.dart';
@@ -11,6 +12,13 @@ class AuthService {
     var model = LoginModel(email, password);
     var response = await _dio.post("EmailLogin", data: model.toJson());
     var output = AuthResponse.fromJson(response.data);
+    return output;
+  }
+
+  Future<BoolResult> signup(String email, String password) async {
+    var model = LoginModel(email, password);
+    var response = await _dio.post("EmailRegister", data: model);
+    var output = BoolResult.fromJson(response.data);
     return output;
   }
 
@@ -32,10 +40,7 @@ class AuthService {
 
   Future<bool> testToken(String token) async {
     try {
-      var result = await _dio.get("Test",
-          options: Options(headers: {
-            "Authorization": "Bearer " + token,
-          }));
+      var result = await _dio.get("Test");
       return result.statusCode == 200 ? true : false;
     } on DioError catch (e) {
       return false;

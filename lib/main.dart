@@ -2,6 +2,7 @@ import 'package:app/landing_page.dart';
 import 'package:app/membership.dart';
 import 'package:app/search_result.dart';
 import 'package:app/splash_screen.dart';
+import 'package:app/verification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +21,8 @@ class MyApp extends GetView {
         unselectedWidgetColor: Colors.white,
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(),
+      // home: SplashScreen(),
+      home: Verification(),
     );
   }
 }

@@ -15,15 +15,16 @@ abstract class Statics {
 
   static Dio getDioInstance(String url) {
     var dio = Dio(BaseOptions(baseUrl: baseUrl + url));
-    dio.interceptors.add(InterceptorsWrapper(
-      onError: (e, handler) async {
-        if (e.response?.statusCode == 401 &&
-            await TokenService().token != null) {
-          return await renewRequest(e, handler);
-        }
-        handler.next(e);
-      },
-    ));
+    dio.interceptors.add(InterceptorsWrapper(onError: (e, handler) async {
+      if (e.response?.statusCode == 401 && await TokenService().token != null) {
+        return await renewRequest(e, handler);
+      }
+      handler.next(e);
+    }, onRequest: (options, handler) async {
+      var token = await getToken();
+      if (token != null) options.headers["Authorization"] = "Bearer " + token;
+      handler.next(options);
+    }));
     return dio;
   }
 
@@ -49,5 +50,9 @@ abstract class Statics {
     if (result == null) return null;
     ts.writeToken(result.token, result.refreshToken);
     return result.token;
+  }
+
+  static Future<String?> getToken() async {
+    return await TokenService().token;
   }
 }
