@@ -1,4 +1,6 @@
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:app/membership.dart';
+import 'package:app/services/token_service.dart';
+import 'package:get/get.dart';
 
 enum Gender { male, female, other }
 
@@ -8,5 +10,10 @@ class ProfileController extends GetxController {
   void onRadioButtonClick(value) {
     selectedGender = value;
     update();
+  }
+
+  logout() {
+    TokenService().remove();
+    Get.offAll(() => Membership());
   }
 }

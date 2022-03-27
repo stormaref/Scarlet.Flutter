@@ -29,10 +29,10 @@ abstract class Statics {
 
   static Future<void> renewRequest(
       DioError e, ErrorInterceptorHandler handler) async {
-    var token = await refreshToken();
+    var dio = Dio();
+    var token = await refreshToken(dio);
     if (token == null) return handler.next(e);
     var path = e.requestOptions.path;
-    var dio = Dio();
     dio.options.headers["Authorization"] = "Bearer " + token;
     var response = await dio.request(path,
         options: Options(method: e.requestOptions.method),
@@ -41,11 +41,11 @@ abstract class Statics {
     return handler.resolve(response);
   }
 
-  static Future<String?> refreshToken() async {
+  static Future<String?> refreshToken(Dio dio) async {
     var ts = TokenService();
     var token = await ts.token;
     var refreshToken = await ts.refreshToken;
-    var result = await AuthService().refreshToken(Dio(), token!, refreshToken!);
+    var result = await AuthService().refreshToken(dio, token!, refreshToken!);
     if (result == null) return null;
     ts.writeToken(result.token, result.refreshToken);
     return result.token;

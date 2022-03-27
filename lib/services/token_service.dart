@@ -28,4 +28,11 @@ class TokenService {
     _refreshToken = refreshToken;
     return refreshToken;
   }
+
+  Future remove() async {
+    await Statics.storage.delete(key: "token");
+    await Statics.storage.delete(key: "refreshToken");
+    _token = null;
+    _refreshToken = null;
+  }
 }

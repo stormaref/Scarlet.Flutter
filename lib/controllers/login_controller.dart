@@ -80,7 +80,7 @@ class LoginController extends GetxController {
     var response = await _authService.login(email, password);
     if (response.succeeded) {
       await _storageService.writeToken(response.token, response.refreshToken);
-      Get.to(() => LandingPage());
+      Get.off(() => LandingPage());
     }
   }
 

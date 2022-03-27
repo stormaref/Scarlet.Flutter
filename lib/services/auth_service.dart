@@ -26,6 +26,7 @@ class AuthService {
       var error = e.error;
       var data = e.response?.data;
       if (e.response != null && e.response!.statusCode == 400) return null;
+      rethrow;
     }
   }
 

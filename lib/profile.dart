@@ -566,7 +566,7 @@ class ProfileView extends GetView<ProfileController> {
                         height: 40,
                       ),
                       GestureDetector(
-                        onTap: () => logout(),
+                        onTap: () => controller.logout(),
                         child: Row(
                           children: [
                             MyIcons().logout(Colors.white),
@@ -585,10 +585,6 @@ class ProfileView extends GetView<ProfileController> {
           );
           return container;
         });
-  }
-
-  void logout() {
-    log("message");
   }
 
   aboutUs() {}
