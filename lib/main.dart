@@ -1,3 +1,4 @@
+import 'package:app/colors/my_colors.dart';
 import 'package:app/landing_page.dart';
 import 'package:app/membership.dart';
 import 'package:app/search_result.dart';
@@ -19,7 +20,7 @@ class MyApp extends GetView {
       title: 'Scarlet Chair',
       theme: ThemeData(
         unselectedWidgetColor: Colors.white,
-        primarySwatch: Colors.blue,
+        primarySwatch: MyColors.materialBackground,
       ),
       home: SplashScreen(),
       // home: Verification(),

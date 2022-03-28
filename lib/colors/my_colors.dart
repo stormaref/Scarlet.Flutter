@@ -24,4 +24,20 @@ class MyColors {
   static Color meta = Color(0xFF8AE7A4);
   static Color clock = Color(0xFFBEC2C4);
   static Color devider = Color(0xFF6D6B6C);
+
+  static const MaterialColor materialBackground = MaterialColor(
+    0xFF0B090A,
+    <int, Color>{
+      50: Color(0XFF0a0809), //10%
+      100: Color(0XFF090708), //20%
+      200: Color(0XFF080607), //30%
+      300: Color(0XFF070506), //40%
+      400: Color(0XFF060505), //50%
+      500: Color(0XFF040404), //60%
+      600: Color(0XFF030303), //70%
+      700: Color(0XFF020202), //80%
+      800: Color(0XFF010101), //90%
+      900: Color(0XFF000000), //100%
+    },
+  );
 }
