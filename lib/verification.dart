@@ -2,10 +2,12 @@ import 'package:app/colors/my_colors.dart';
 import 'package:app/components/white_text.dart';
 import 'package:app/controllers/verification_controller.dart';
 import 'package:app/icons/my_icons.dart';
+import 'package:app/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/instance_manager.dart';
+import 'package:get/get.dart';
 
 class Verification extends GetView<VerificationController> {
   @override
@@ -42,7 +44,7 @@ class Verification extends GetView<VerificationController> {
                                 width: 12,
                               ),
                               IconButton(
-                                  onPressed: () {},
+                                  onPressed: () => Get.back(),
                                   splashRadius: 16,
                                   icon: MyIcons().edit(Colors.white)),
                             ],

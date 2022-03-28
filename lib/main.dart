@@ -21,8 +21,8 @@ class MyApp extends GetView {
         unselectedWidgetColor: Colors.white,
         primarySwatch: Colors.blue,
       ),
-      // home: SplashScreen(),
-      home: Verification(),
+      home: SplashScreen(),
+      // home: Verification(),
     );
   }
 }
