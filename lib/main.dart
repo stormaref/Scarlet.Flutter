@@ -1,6 +1,7 @@
 import 'package:app/colors/my_colors.dart';
 import 'package:app/landing_page.dart';
 import 'package:app/membership.dart';
+import 'package:app/movie_details.dart';
 import 'package:app/search_result.dart';
 import 'package:app/splash_screen.dart';
 import 'package:app/verification.dart';
@@ -23,7 +24,7 @@ class MyApp extends GetView {
         primarySwatch: MyColors.materialBackground,
       ),
       home: SplashScreen(),
-      // home: Verification(),
+      // home: MovieDetails(),
     );
   }
 }

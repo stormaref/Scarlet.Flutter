@@ -11,7 +11,7 @@ class LoginController extends GetxController {
   bool emailSuffixIcon = false;
   int type;
   late AuthService _authService;
-  late TokenService _storageService;
+  late TokenService _tokenService;
 
   LoginController(this.type) {
     emailController = TextEditingController();
@@ -19,7 +19,7 @@ class LoginController extends GetxController {
     passwordController = TextEditingController();
     passwordController?.addListener(passwordTextListener);
     _authService = AuthService();
-    _storageService = TokenService();
+    _tokenService = TokenService();
   }
 
   passwordToggle() {
@@ -79,7 +79,7 @@ class LoginController extends GetxController {
   Future login(String email, String password) async {
     var response = await _authService.login(email, password);
     if (response.succeeded) {
-      await _storageService.writeToken(response.token, response.refreshToken);
+      await _tokenService.writeToken(response.token, response.refreshToken);
       Get.off(() => LandingPage());
     }
   }

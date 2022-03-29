@@ -152,7 +152,7 @@ class ProfileView extends GetView<ProfileController> {
                 alignment: Alignment.topCenter,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 128),
-                  child: Container(
+                  child: SizedBox(
                     width: 112,
                     height: 112,
                     child: Stack(
@@ -306,8 +306,8 @@ class ProfileView extends GetView<ProfileController> {
                     children: [
                       Expanded(
                           flex: 35,
-                          child:
-                              CustomButton("Cancel", () {}, MyColors.grayT4)),
+                          child: CustomButton(
+                              "Cancel", () => Get.back(), MyColors.grayT4)),
                       const Expanded(
                         flex: 5,
                         child: const SizedBox(),
@@ -356,8 +356,8 @@ class ProfileView extends GetView<ProfileController> {
                       children: [
                         Expanded(
                             flex: 35,
-                            child:
-                                CustomButton("Cancel", () {}, MyColors.grayT4)),
+                            child: CustomButton(
+                                "Cancel", () => Get.back(), MyColors.grayT4)),
                         const Expanded(
                           flex: 5,
                           child: const SizedBox(),
@@ -404,8 +404,8 @@ class ProfileView extends GetView<ProfileController> {
                     children: [
                       Expanded(
                           flex: 35,
-                          child:
-                              CustomButton("Cancel", () {}, MyColors.grayT4)),
+                          child: CustomButton(
+                              "Cancel", () => Get.back(), MyColors.grayT4)),
                       const Expanded(
                         flex: 5,
                         child: const SizedBox(),
