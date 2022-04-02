@@ -23,8 +23,8 @@ class MyApp extends GetView {
         unselectedWidgetColor: Colors.white,
         primarySwatch: MyColors.materialBackground,
       ),
-      // home: SplashScreen(),
-      home: MovieDetails(),
+      home: SplashScreen(),
+      // home: MovieDetails(),
       // home: Verification(),
     );
   }

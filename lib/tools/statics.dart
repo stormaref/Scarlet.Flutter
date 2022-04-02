@@ -35,6 +35,7 @@ abstract class Statics {
     if (token == null) return handler.next(e);
     var path = e.requestOptions.path;
     dio.options.headers["Authorization"] = "Bearer " + token;
+    dio.options.baseUrl = e.requestOptions.baseUrl;
     var response = await dio.request(path,
         options: Options(method: e.requestOptions.method),
         data: e.requestOptions.data,

@@ -22,7 +22,7 @@ class MovieDetails extends GetView<MovieDetailsController> {
         backgroundColor: MyColors.background,
         body: SingleChildScrollView(
           child: Container(
-            padding: const EdgeInsets.only(left: 16, right: 16, top: 36),
+            padding: const EdgeInsets.only(left: 16, right: 16, top: 40),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,6 +91,7 @@ class MovieDetails extends GetView<MovieDetailsController> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       FloatingActionButton(
+                        heroTag: "seen",
                         backgroundColor: MyColors.grayT6,
                         onPressed: () {},
                         child: MyIcons().show(MyColors.grayBlack),
@@ -99,6 +100,7 @@ class MovieDetails extends GetView<MovieDetailsController> {
                         width: 16,
                       ),
                       FloatingActionButton(
+                        heroTag: "remove",
                         backgroundColor: MyColors.grayT6,
                         onPressed: () {},
                         child: MyIcons().delete(MyColors.grayBlack),
@@ -107,6 +109,7 @@ class MovieDetails extends GetView<MovieDetailsController> {
                         width: 16,
                       ),
                       FloatingActionButton(
+                        heroTag: "bookmark",
                         backgroundColor: MyColors.grayT6,
                         onPressed: () {},
                         child: MyIcons().watchlistBookmark(MyColors.grayBlack),
@@ -198,14 +201,20 @@ class MovieDetails extends GetView<MovieDetailsController> {
                                 icon: MyIcons().arrowBottomCircle(Colors.white))
                           ],
                         ),
-                        ListView.separated(
-                            shrinkWrap: true,
-                            itemBuilder: (ctx, i) => RatingRow(
-                                RatingIntensity.low, "Sex and nudity :"),
-                            separatorBuilder: (ctx, i) => const SizedBox(
-                                  height: 12,
-                                ),
-                            itemCount: 5),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8),
+                          child: ListView.separated(
+                              shrinkWrap: true,
+                              itemBuilder: (ctx, i) => RatingRow(
+                                  RatingIntensity.low, "Sex and nudity :"),
+                              separatorBuilder: (ctx, i) => const SizedBox(
+                                    height: 12,
+                                  ),
+                              itemCount: 5),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        )
                       ]),
                 ),
                 const SizedBox(
@@ -242,7 +251,7 @@ class MovieDetails extends GetView<MovieDetailsController> {
                       itemCount: 5),
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 32,
                 )
               ],
             ),

@@ -174,39 +174,4 @@ class MyIcons {
         "assets/icons/home.svg",
         color: color,
       );
-  SvgPicture homeEnabled(Color color) => SvgPicture.asset(
-        "assets/icons/home_enabled.svg",
-        color: color,
-      );
-  SvgPicture homeDisabled(Color color) => SvgPicture.asset(
-        "assets/icons/home_disabled.svg",
-        color: color,
-      );
-
-  SvgPicture profileEnabled(Color color) => SvgPicture.asset(
-        "assets/icons/profile_enabled.svg",
-        color: color,
-      );
-  SvgPicture profileDisabled(Color color) => SvgPicture.asset(
-        "assets/icons/profile_disabled.svg",
-        color: color,
-      );
-
-  SvgPicture exploreEnabled(Color color) => SvgPicture.asset(
-        "assets/icons/explore_enabled.svg",
-        color: color,
-      );
-  SvgPicture exploreDisabled(Color color) => SvgPicture.asset(
-        "assets/icons/explore_disabled.svg",
-        color: color,
-      );
-
-  SvgPicture watchlistBookmarkEnabled(Color color) => SvgPicture.asset(
-        "assets/icons/watchlist_bookmark_enabled.svg",
-        color: color,
-      );
-  SvgPicture watchlistBookmarkDisabled(Color color) => SvgPicture.asset(
-        "assets/icons/watchlist_bookmark_disabled.svg",
-        color: color,
-      );
 }
