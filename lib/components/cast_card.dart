@@ -32,7 +32,9 @@ class CastCard extends GetView<CastCardController> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(50),
                       child: Image.network(
-                        "https://pyxis.nymag.com/v1/imgs/339/ba5/343b5b41f14dbf283bee18ee957135a61b-21-johnny-depp.rsquare.w700.jpg",
+                        "https://see.news/wp-content/uploads/2022/01/newFile-2.jpg",
+                        height: 80,
+                        fit: BoxFit.fitHeight,
                       ),
                     ),
                   ),
@@ -60,12 +62,13 @@ class CastCard extends GetView<CastCardController> {
                         child: GestureDetector(
                             onTap: () => controller.tap(id),
                             child: controller.get(id)
-                                ? MyIcons().heart(MyColors.lipstick)
+                                ? MyIcons().heart(Colors.white)
                                 : MyIcons().heart(MyColors.grayBlack))),
                   ),
                   width: 32,
                   height: 36,
-                  color: MyColors.grayT6,
+                  color:
+                      controller.get(id) ? MyColors.lipstick : MyColors.grayT6,
                 ),
               ),
             )

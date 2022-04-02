@@ -24,8 +24,8 @@ class MyApp extends GetView {
         primarySwatch: MyColors.materialBackground,
       ),
       // home: SplashScreen(),
-      // home: MovieDetails(),
-      home: Verification(),
+      home: MovieDetails(),
+      // home: Verification(),
     );
   }
 }
